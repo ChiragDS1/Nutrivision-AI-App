@@ -1,0 +1,3 @@
+streamlit run "e:\Nutrivision AI App\nutrivision_app.py"
+streamlit run "e:\Nutrivision AI App\nutrivision2.py"
+streamlit run "e:\Nutrivision AI App\nutrivision.py"
