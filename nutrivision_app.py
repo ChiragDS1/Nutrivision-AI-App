@@ -539,6 +539,9 @@ def show_diet_plan(user_id):
         plan = response.choices[0].message.content
         st.markdown(plan)
         st.download_button("Download Diet Plan", plan, file_name="diet_plan.txt")
+        c.execute('INSERT INTO diet_plans (user_id, profile_hash, plan, diet_type, allergens, other_allergy, health_conditions, supplements, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
+          (user_id, profile_hash, plan, diet_type, ','.join(allergens), other_allergy, ','.join(health_conditions), ','.join(supplements), datetime.datetime.now()))
+        conn.commit()
 
 def rate_diet_plan(user_id):
     st.header("Rate & Give Feedback on Your Diet Plan")
